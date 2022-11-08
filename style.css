@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+/* Gen styles */
+:root{
+    --cell-size: 140px;
+    --mark-size: calc(var(--cell-size) * .9);
+    --background-color: #303134;
+}
+
+*{
+    box-sizing: border-box;
+    appearance: none;
+    user-select: none;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    margin: 0;
+}
+/* Board */
+.board {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center; /* align the boxes */
+    justify-items: center;
+    align-items: center; /* Aligns the things INSIDE the boxes !!! sheeeesh*/
+    grid-template-columns: repeat(3, auto);
+    background: var(--background-color);
+    transition: all 150ms ease;
+}
+.cell{
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: solid 4px #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.cell{
+    font-size: 6rem;
+    font-weight: 700;
+    color: #121212;
+}
+.cell.x{
+    font-size: 7rem;
+    cursor: default;
+}
+.cell.o{
+    font-weight: 800;
+    cursor: default;
+}
+/* removing borders around the grid */
+.cell:first-child{
+    border-top: none;
+    border-left: none;
+}
+.cell:nth-child(2){
+    border-top: none;
+}
+.cell:nth-child(3){
+    border-top: none;
+    border-right: none;
+}
+.cell:nth-child(4){
+    border-left: none;
+}
+.cell:nth-child(6){
+    border-right: none;
+}
+.cell:nth-child(7){
+    border-left: none;
+    border-bottom: none;
+}
+.cell:nth-child(8){
+    border-bottom: none;
+}
+.cell:nth-child(9){
+    border-bottom: none;
+    border-right: none;
+}
+
+.winning-message{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 3rem;
+    color: azure;
+    font-size: 4rem;
+}
+
+.winning-message > button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 4.8rem;
+    height: 4.8rem;
+    border: none;
+    background: #03DAC5;
+    color: #121212;
+    font-size: 3rem;
+    transition: all 300ms ease;
+}
+
+.winning-message > button:hover{
+    color: aliceblue;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
+}
+.winning-message > button:active{
+    scale: 1.1;
+}
+.winning-message.show{
+    display: flex;
+}
